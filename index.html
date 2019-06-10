@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="external nofollow" >
+  <style>
+    html body{
+      width: 100%;
+      height: 100%;
+    }
+    label{
+      float:left;
+      line-height: 34px;
+    }
+    .panel-body{
+      margin:30px auto;
+    }
+    .col-md-6{
+
+    }
+    .panel-body1{
+      width: 500px;
+      height: 300px;
+
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="col-md-6">
+  <div class="panel panel-default" id="app" >
+    <input type="text"/>
+    <button v-on:click="addPerson()">新增</button>
+
+    <div class="panel-body1" v-if="willShow">
+      <div class="form-group">
+        <label class="col-md-2 control-label">用户名</label>
+        <input type="text" class="col-md-9 form-control" v-model="newPerson.name"/>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">邮箱</label>
+        <input type="text" class="col-md-9 form-control" v-model="newPerson.emall">
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">省份：</label>
+        <select class="col-md-2 form-control" v-model="newPerson.gender">
+          <option value="北京">北京</option>
+          <option value="山东">山东</option>
+          <option value="河南">河南</option>
+          <option value="河北">河北</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">爱好</label>
+        <select class="col-md-2 form-control" v-model="newPerson.province">
+          <option value="篮球">篮球</option>
+          <option value="读书">读书</option>
+          <option value="插画">插画</option>
+          <option value="编程">编程</option>
+          <option value="弹琴">弹琴</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">性别：</label>
+        <select class="col-md-2 form-control"v-model="newPerson.hobby">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button class="col-md-2" @click="createPerson1">取消</button>
+        <button class="col-md-2" @click="createPerson">保存</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table text-center">
+        <thead>
+        <tr >
+          <th class="text-center">用户名</th>
+          <th class="text-center">邮箱</th>
+          <th class="text-center">省份</th>
+          <th class="text-center">爱好</th>
+          <th class="text-center">性别</th>
+          <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(person,index) in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.emall }}</td>
+          <td>{{ person.gender }}</td>
+          <td>{{ person.province }}</td>
+          <td>{{ person.hobby }}</td>
+          <td>
+            <button v-on:click="Person(index)">删除</button>
+            <button>修改</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+<script >
+
+
+</script>
+</html>
